@@ -8,20 +8,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint . --ext ts --ext tsx --ext js",
     "tc": "tsc --pretty --noEmit",
-    "format": "prettier --write .",
-    "prepare": "husky"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "npm run tc"
-    }
+    "format": "prettier --write ."
   },
   "lint-staged": {
-    "*.@(ts|tsx)": [
-      "npm run dev",
+    "*.(ts|tsx)": [
       "npm run lint",
       "npm run format"
     ]
