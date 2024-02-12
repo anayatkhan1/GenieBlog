@@ -1,5 +1,7 @@
 {
-  "name": "next-ts",
+  "name": "blogger-ai",
+  "description": "Ai generated Blog",
+  "author": "Anayat",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,9 +9,24 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "tc": "tsc --pretty --noEmit",
+    "format": "prettier --write .",
     "prepare": "husky"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run tc"
+    }
+  },
+  "lint-staged": {
+    "*.@(ts|tsx)": [
+      "npm run lint",
+      "npm run format"
+    ]
+  },
   "dependencies": {
+    "lint-staged": "^15.2.2",
     "next": "14.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
