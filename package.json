@@ -9,11 +9,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint . --ext ts --ext tsx --ext js",
-    "tc": "tsc --pretty --noEmit",
     "format": "prettier --write ."
   },
   "lint-staged": {
-    "*.(ts|tsx)": [
+    "*.@(ts|tsx)": [
       "npm run lint",
       "npm run format"
     ]
