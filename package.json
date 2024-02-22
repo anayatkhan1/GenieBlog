@@ -1,7 +1,7 @@
 {
-  "name": "blogger-ai",
+  "name": "genie-blog",
   "description": "Ai generated Blog",
-  "author": "Anayat",
+  "author": "Anayat khan",
   "version": "0.1.0",
   "private": true,
   "scripts": {
