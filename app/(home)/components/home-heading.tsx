@@ -1,7 +1,8 @@
 import React from "react";
+import { Button } from "@/components/ui/button";
 
 const HomeHeading = () => {
-    return <div>home-heading</div>;
+    return <div>Home Heading</div>;
 };
 
 export default HomeHeading;
