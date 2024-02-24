@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Toaster } from "@/components/ui/sonner";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -20,7 +21,10 @@ export default function RootLayout({
             <head>
                 <link rel="icon" href="./favicon.ico" sizes="any" />
             </head>
-            <body className={inter.className}>{children}</body>
+            <body className={inter.className}>
+                {children}
+                <Toaster position="top-right" theme="light" richColors />
+            </body>
         </html>
     );
 }

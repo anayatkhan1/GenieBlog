@@ -20,7 +20,7 @@ export default function HomeLayout({
             <main className="h-dvh">
                 <Navbar />
                 {children}
-                <Footer />
+                {/* <Footer /> */}
             </main>
         </>
     );
