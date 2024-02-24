@@ -13,8 +13,8 @@ export async function getBlogId(id: number) {
         .single();
 
     if (error) {
-        alert(error.message);
-        return; //abort
+        // alert(error.message);
+        return error.message; //abort
     }
     return data;
 }
@@ -26,8 +26,8 @@ export async function getAllBlogs() {
         .order("created_at", { ascending: false });
 
     if (error) {
-        alert(error.message);
-        return; //abort
+        // alert(error.message);
+        return error.message; //abort
     }
     return data;
 }
