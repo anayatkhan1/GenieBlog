@@ -10,15 +10,12 @@ import {
 import { Button } from "./ui/button";
 import { toast } from "sonner";
 import { createCompletion } from "@/app/action";
+import { useFormStatus } from "react-dom";
+import { cn } from "@/lib/utils";
 
 const Generate = () => {
     async function action(formData: FormData) {
         const prompt = formData.get("prompt");
-
-        // if (!prompt) {
-        //     //toast notification
-        //     toast.error("Ohho! Biatch Do it again");
-        // }
 
         // call server action
 
@@ -46,17 +43,30 @@ const Generate = () => {
                             placeholder="What should I write aboout ?"
                             className="w-full rounded-lg p-2 text-center "
                         />
-                        <Button
-                            size="lg"
-                            type="submit"
-                            className="mt-3 w-full rounded-lg  text-xl font-semibold"
-                        >
-                            Submit
-                        </Button>
+                        <SubmitButton />
                     </form>
                 </CardContent>
             </Card>
         </section>
+    );
+};
+
+const SubmitButton = () => {
+    const { pending } = useFormStatus();
+
+    return (
+        <>
+            <Button
+                size="lg"
+                type="submit"
+                className={cn(
+                    "mt-3 w-full rounded-lg font-semibold",
+                    pending && "animate-pulse"
+                )}
+            >
+                {pending ? "Working on it..." : "Submit"}
+            </Button>
+        </>
     );
 };
 
