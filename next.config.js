@@ -4,10 +4,10 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: "https",
-                hostname: "pdjofjygvmxklpeamnld.supabase.co"
-            }
-        ]
-    }
+                hostname: "pdjofjygvmxklpeamnld.supabase.co",
+            },
+        ],
+    },
 };
 
 module.exports = nextConfig;
