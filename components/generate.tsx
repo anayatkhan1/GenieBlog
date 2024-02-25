@@ -7,6 +7,12 @@ import {
     CardHeader,
     CardTitle,
 } from "./ui/card";
+import {
+    SignedIn,
+    SignedOut,
+    SignInButton,
+    SignOutButton,
+} from "@clerk/nextjs";
 import { Button } from "./ui/button";
 import { toast } from "sonner";
 import { createCompletion } from "@/app/action";
@@ -30,7 +36,7 @@ const Generate = () => {
             <Card className="border-0 bg-white shadow-none hover:border-blue-400">
                 <CardHeader className="text-center">
                     <CardTitle className="text-6xl ">
-                        <span className="font-bold"> Ginie AI Blog</span>
+                        <span className="font-bold"> Genie AI Blog</span>
                         <CardDescription className="mt-3 text-lg ">
                             Generate a blog post about anything
                         </CardDescription>
@@ -56,16 +62,30 @@ const SubmitButton = () => {
 
     return (
         <>
-            <Button
-                size="lg"
-                type="submit"
-                className={cn(
-                    "mt-3 w-full rounded-lg font-semibold",
-                    pending && "animate-pulse"
-                )}
-            >
-                {pending ? "Working on it..." : "Submit"}
-            </Button>
+            <SignedIn>
+                <Button
+                    size="lg"
+                    type="submit"
+                    className={cn(
+                        "mt-3 w-full rounded-lg font-semibold",
+                        pending && "animate-pulse"
+                    )}
+                >
+                    {pending ? "Working on it..." : "Submit"}
+                </Button>
+            </SignedIn>
+            <SignedOut>
+                <SignInButton mode="modal">
+                    <Button
+                        size="lg"
+                        type="button"
+                        variant="secondary"
+                        className="mt-3 w-full rounded-lg font-medium"
+                    >
+                        Sign in to start
+                    </Button>
+                </SignInButton>
+            </SignedOut>
         </>
     );
 };

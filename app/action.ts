@@ -1,15 +1,22 @@
 "use server";
 
+import OpenAI from "openai";
+import { auth } from "@clerk/nextjs";
 import { supabase } from "@/lib/supabase";
 import { decode } from "base64-arraybuffer";
+import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import OpenAI from "openai";
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 export async function createCompletion(prompt: string) {
     if (!prompt) {
         return { error: "Ohho! Prompt is required" };
+    }
+
+    const { userId } = auth();
+    if (!userId) {
+        return { error: "User is not logged in" };
     }
 
     // generate blog post using openai
@@ -61,12 +68,13 @@ export async function createCompletion(prompt: string) {
     // create a new blog post in supabase
     const { data: blog, error: blogError } = await supabase
         .from("blogs")
-        .insert([{ title: prompt, content, imageUrl, userId: "123" }])
+        .insert([{ title: prompt, content, imageUrl, userId }])
         .select();
 
     if (blogError) {
         return { error: "Unable to insert the blog into the database." };
     }
     const blogId = blog?.[0]?.id;
+    revalidatePath("/");
     redirect(`/blog/${blogId}`);
 }

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "../ui/button";
+import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 
 const Navbar = () => {
     return (
@@ -15,9 +16,16 @@ const Navbar = () => {
                     />
                     <span className="text-2xl font-bold">Genie Blog</span>
                 </Link>
-                <Button size="lg">
-                    <span className="font-semibold ">Sign in</span>
-                </Button>
+                <SignedIn>
+                    <UserButton afterSignOutUrl="/" />
+                </SignedIn>
+                <SignedOut>
+                    <SignInButton mode="modal">
+                        <Button size="lg">
+                            <span className="font-semibold ">Sign in</span>
+                        </Button>
+                    </SignInButton>
+                </SignedOut>
             </nav>
         </header>
     );
