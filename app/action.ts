@@ -23,7 +23,10 @@ export async function createCompletion(prompt: string) {
     const messages: any = [
         {
             role: "user",
-            content: `write a blog post around 200 words about the following topics: [${prompt}]`,
+            content: `write a blog post around 200 words about the following topics: [${prompt}]
+                      Before generating the blog content follow my instructions:
+                       1. write a only title of the blog in bold under 10 words.
+                       2. Ensure 100% originality to avoid plagiarism.`,
         },
     ];
 
@@ -40,7 +43,9 @@ export async function createCompletion(prompt: string) {
     // generate an image using openai
     const image = await openai.images.generate({
         model: "dall-e-2",
-        prompt: `Generate an image for a blog post about [${prompt}]`,
+        prompt: `Generate an image for a blog post about [${prompt}]
+        Before creating an image for a blog post, adhere to these instructions:
+        1. A 3D unreal most realistic image of this ${prompt}.`,
         n: 1,
         size: "1024x1024",
         response_format: "b64_json",

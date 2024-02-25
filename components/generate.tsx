@@ -35,12 +35,12 @@ const Generate = () => {
         <section className="mx-auto max-w-2xl">
             <Card className="border-0 bg-white shadow-none hover:border-blue-400">
                 <CardHeader className="text-center">
-                    <CardTitle className="text-6xl ">
-                        <span className="font-bold"> Genie AI Blog</span>
-                        <CardDescription className="mt-3 text-lg ">
-                            Generate a blog post about anything
-                        </CardDescription>
+                    <CardTitle className="text-5xl">
+                        <span className="font-bold">Genie Ai Blogger</span>
                     </CardTitle>
+                    <CardDescription className="mt-3 text-lg ">
+                        Generate a blog post about anything
+                    </CardDescription>
                 </CardHeader>
                 <CardContent>
                     <form action={action} className="mt-3">
