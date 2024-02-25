@@ -16,7 +16,7 @@ const Blog = async ({ params }: { params: { id: string } }) => {
                 <span>Go back</span>
             </Link>
 
-            <section className="prose mt-6">
+            <section className="prose mt-6 prose-strong:text-4xl prose-strong:font-extrabold">
                 <Image alt=" " src={imageUrl} width={1000} height={1024} />
                 <Markdown>{content}</Markdown>
             </section>
