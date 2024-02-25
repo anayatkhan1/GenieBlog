@@ -1,5 +1,6 @@
 "use client";
 import { Input } from "./ui/input";
+
 import {
     Card,
     CardContent,
@@ -7,12 +8,7 @@ import {
     CardHeader,
     CardTitle,
 } from "./ui/card";
-import {
-    SignedIn,
-    SignedOut,
-    SignInButton,
-    SignOutButton,
-} from "@clerk/nextjs";
+import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 import { Button } from "./ui/button";
 import { toast } from "sonner";
 import { createCompletion } from "@/app/action";
