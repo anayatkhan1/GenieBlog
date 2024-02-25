@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { getBlogId } from "@/lib/supabase";
 import { ChevronLeft } from "lucide-react";
+import Markdown from "react-markdown";
 
 const Blog = async ({ params }: { params: { id: string } }) => {
     const { content, imageUrl } = await getBlogId(Number(params.id));
@@ -15,9 +16,9 @@ const Blog = async ({ params }: { params: { id: string } }) => {
                 <span>Go back</span>
             </Link>
 
-            <section>
-                <Image alt=" " src={imageUrl} width={1792} height={1024} />
-                {content}
+            <section className="prose mt-6">
+                <Image alt=" " src={imageUrl} width={1000} height={1024} />
+                <Markdown>{content}</Markdown>
             </section>
         </section>
     );

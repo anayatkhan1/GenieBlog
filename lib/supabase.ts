@@ -12,10 +12,6 @@ export async function getBlogId(id: number) {
         .eq("id", id)
         .single();
 
-    if (error) {
-        // alert(error.message);
-        return error.message; //abort
-    }
     return data;
 }
 
@@ -24,10 +20,5 @@ export async function getAllBlogs() {
         .from("blogs")
         .select()
         .order("created_at", { ascending: false });
-
-    if (error) {
-        // alert(error.message);
-        return error.message; //abort
-    }
     return data;
 }
