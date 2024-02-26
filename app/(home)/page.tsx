@@ -1,5 +1,7 @@
 import AllBlogs from "@/components/all-blogs";
 import Generate from "@/components/generate";
+
+export const maxDuration = 15;
 const Home = async () => {
     return (
         <section className="py-24">
