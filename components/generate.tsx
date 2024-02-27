@@ -32,7 +32,7 @@ const Generate = () => {
             <Card className="border-0 bg-white shadow-none hover:border-blue-400">
                 <CardHeader className="text-center">
                     <CardTitle className="text-5xl">
-                        <span className="font-bold">Genie Ai Blogger</span>
+                        <span className="font-bold">Genie AI Blogger</span>
                     </CardTitle>
                     <CardDescription className="mt-3 text-lg ">
                         Generate a blog post about anything
