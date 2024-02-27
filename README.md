@@ -2,7 +2,7 @@
 <img width="1073" alt="Screenshot 2024-02-25 at 5 36 45 PM" src="https://github.com/anayatkhan1/GenieBlog/assets/73161735/96990482-6625-42f3-b738-d10b0745da38">
 
 ### Project Overview
-This project is an AI-powered blog generator that allows users to create blog posts with just a single click. It utilizes advanced AI algorithms for generating plagiarism-free content and fetching relevant images to accompany the text. The tech stack includes Next.js, TypeScript, Tailwind CSS, OpenAI for content and image generation, Clerk for authentication, and Supabase for database management.
+This project is an AI-powered blog generator that allows users to create blog posts with just a single click. It utilizes advanced AI algorithms for generating plagiarism-free content and fetching relevant images to accompany the text.
 
 ### Features
 1. **One-Click Blog Generation**: Users can generate fully-formed blog posts with just a single click, saving time and effort.
